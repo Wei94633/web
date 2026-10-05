@@ -1,0 +1,11 @@
+System started
+ERROR: Database failed
+User logged in
+Error: Network failed
+Warning: Low memory
+error: File missing
+ERROR: Connection lost
+System running
+Error: Permission denied
+ERROR: Timeout
+ERROR: Another error
