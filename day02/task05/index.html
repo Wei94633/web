@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodingPedia</title>
+</head>
+
+<body>
+    <header>     <!--網頁上方-->
+        <h1>Welcome to CodingPedia!</h1>
+        <nav>
+            <ul>     <!--清單list-->
+                <li><a href="index.html">Index</a></li>
+                <li><a href="php.html">PHP</a></li>
+                <li><a href="sql.html">SQL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>   <!--主要內容-->
+        <p>
+            CodingPedia is a collective encyclopedia project on the Internet aiming to be universal and multi-lingual which functions as a wiki.
+            <br>
+            CodingPedia has for goal to offer freely reusable objective and verifiable content that anyone can modify and improve.
+        </p>
+
+        <form>
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" name="firstname" required>    <!--必填-->
+            <br>
+
+            <label for="lastname">Last name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+            <br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="3" max="99">
+            <br>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" minlength="10" maxlength="10">
+            <br>
+
+            <label>Sex:</label>
+
+            <input type="radio" id="male" name="sex" value="male" checked>    <!--check: 預設-->
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="sex" value="female">
+            <label for="female">Female</label>
+            <br>
+
+            <label for="haircolor">Hair color:</label>
+            <input type="color" id="haircolor" name="haircolor">
+            <br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <br>
+
+            <label for="technology">Technology:</label>
+
+            <select id="technology" name="technology">
+                <option value="php">PHP</option>
+                <option value="sql">SQL</option>
+            </select>
+            <br>
+
+            <label for="question">Question:</label>
+            <textarea id="question" name="question" required></textarea>
+            <br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </main> 
+
+    <aside>    <!--旁邊額外內容-->
+        <p>My name is Wei-Wei Huang. I am an Artificial Intelligence student from Taiwan.</p>
+    </aside>
+
+    <footer>    <!--頁尾-->
+        <address>
+            Huang Wei-Wei<br>
+            Address: 32 Rue Henri Barbusse<br>
+            Phone: +33 7 45 44 98 18
+        </address>
+    </footer>
+
+</body>
+
+</html>

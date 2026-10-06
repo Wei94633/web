@@ -1,0 +1,62 @@
+.box {
+    border: 2px solid black;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+body {
+    background-color: grey;
+}
+
+.content {
+    display: flex;
+}
+
+main {
+    width: 80%;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.moving_square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+
+    animation-name: moveSquare;
+    animation-duration: 5s;
+    animation-iteration-count: 5;   /*重複執行次數*/
+}
+
+@keyframes moveSquare {
+    0% {
+    transform: translate(0, 0);   /*translate(水平, 垂直): 移動*/
+    background-color: red;
+    }
+
+    25% {
+    transform: translate(0, 300px);
+    background-color: green;
+    }
+
+    50% {
+    transform: translate(300px, 300px);
+    background-color: blue;
+    }
+
+    75% {
+    transform: translate(300px, 0);
+    background-color: yellow;
+    }
+
+    100% {
+    transform: translate(0, 0);
+    background-color: yellow;
+    }
+}
+

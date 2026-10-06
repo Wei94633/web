@@ -1,0 +1,87 @@
+.box {
+    border: 2px solid black;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+body {
+    background-color: white;
+}
+
+.content {
+    display: flex;
+    align-items: stretch;
+}
+
+main {
+    flex: 4;
+}
+
+aside {
+    flex: 1;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.page {
+    background-color: grey;
+    padding: 10px;
+    border-radius: 0 0 20px 20px;    /*圓角*/
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;     /*三個選項平均分散開*/
+    list-style: none;
+    padding: 0;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sex {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 5px;
+    align-items: center;
+}
+
+.sex input {
+    width: auto;
+    margin: 0;
+}
+
+input[type="color"] {
+    width: 50px;
+}
+
+main > p {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+footer {
+    text-align: center;
+}
