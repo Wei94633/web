@@ -1,0 +1,43 @@
+.blue {
+    background-color: #67B3DD;
+}
+
+.green {
+    background-color: #9EE062;
+}
+
+.yellow {
+    background-color: #FEDF6B;
+}
+
+.red {
+    background-color: #FC302D;
+}
+
+body {
+    margin: 0;    /*元素外面的空間=0（外圍不要有空間）*/
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;    /*直式*/
+    gap: 10px;    /*間距*/
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.articles article:nth-child(n+3) {
+    display: none;    /*隱藏*/
+}
+
+header,
+section:first-of-type,
+article,
+footer {
+    padding: 20px;
+}

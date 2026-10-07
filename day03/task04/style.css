@@ -1,0 +1,101 @@
+.blue {
+    background-color: #67B3DD;
+}
+
+.green {
+    background-color: #9EE062;
+}
+
+.yellow {
+    background-color: #FEDF6B;
+}
+
+.red {
+    background-color: #FC302D;
+}
+
+.purple {
+    background-color: #6B2683;
+}
+
+.pink {
+    background-color: #F03DB5;
+}
+
+body {
+    margin: 0;    /*元素外面的空間=0（外圍不要有空間）*/
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;    /*直式*/
+    gap: 10px;    /*間距*/
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.articles article:nth-child(n+3) {    /*手機版*/
+    display: none;   /*隱藏*/
+}
+
+header,
+section:first-of-type,
+article,
+footer {
+    padding: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .articles article:nth-child(n+3) {       
+    display: block;     /*顯示*/
+    }
+
+    .articles article:nth-child(n+5) {       /*平板版*/
+        display: none;    /*隱藏*/
+    }
+
+    .articles {
+    flex-direction: row;
+    flex-wrap: wrap;   /*橫向排列；且一排塞不下時，自動換到下一排*/
+    }
+
+    .articles article {
+    box-sizing: border-box;
+    width: calc(50% - 5px);   /*一半寬度，再扣掉一半的 gap*/
+    }
+
+    header {
+    width: 50%;
+    box-sizing: border-box;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .articles article:nth-child(n+3) {
+    display: block;
+    }
+
+    .articles {
+    flex-direction: row;
+    flex-wrap: wrap;
+    }
+
+    .articles article {
+        box-sizing: border-box;
+        width: calc((100% - 20px) / 3);
+    }
+
+    header {
+    width: 50%;
+    box-sizing: border-box;
+    }
+
+}

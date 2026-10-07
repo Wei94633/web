@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/css/materialize.min.css">
+</head>
+
+<body class="grey lighten-4">      <!--lighten-4: 把顏色變得很淺-->
+    <div class="blue">
+        <h1 class="white-text">HUANG WEI-WEI</h1>
+        <h2 class="grey-text white">Welcome to My Portfolio!</h2>      <!--灰色文字 白色背景-->
+    </div>
+
+    <div class="container">       <!--讓內容不要直接貼著螢幕左右邊緣-->
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center-align">About me</h3>
+            </div>
+
+            <div class="col s12 m4">
+                <h4 class="center-align">Story</h4>
+                <p>
+                    I am a student interested in artificial intelligence and software development.
+                </p>
+            </div>
+
+            <div class="col s12 m4 blue white-text">
+                <h4 class="center-align">Profile</h4>
+
+                <img src="img.jpeg"
+                    alt="Profile picture"
+                    class="responsive-img circle">
+
+                <div class="card">
+                    <div class="card-action">
+                        <a href="https://github.com/Wei94633">GitHub</a>
+                        <a href="https://www.linkedin.com/in/%E5%94%AF%E7%B6%AD-%E9%BB%83-463b1a40a/">LinkedIn</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col s12 m4">
+
+                <h4 class="center-align">Skills</h4>
+
+                <table>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Comment</th>
+                    </tr>
+
+                    <tr class="grey lighten-3">
+                        <td>Python</td>
+                        <td>Used for AI and software development.</td>
+                    </tr>
+
+                    <tr>
+                        <td>PyTorch</td>
+                        <td>Used for deep learning projects.</td>
+                    </tr>
+
+                    <tr class="grey lighten-3">
+                        <td>OpenCV</td>
+                        <td>Used for image processing and computer vision.</td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <h3 class="center-align">Portfolio</h3>
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img2.png"
+                    alt="Portfolio 1"
+                    class="responsive-img">
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img3.jpg"
+                    alt="Portfolio 2"
+                    class="responsive-img">
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img4.png"
+                    alt="Portfolio 3"
+                    class="responsive-img">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <h3 class="center-align">Last projects</h3>
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img5.png"
+                    alt="Project 1"
+                    class="responsive-img">
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img6.png"
+                    alt="Project 2"
+                    class="responsive-img">
+            </div>
+
+            <div class="col s12 m4">
+                <img src="img7.png"
+                    alt="Project 3"
+                    class="responsive-img">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <h3 class="center-align">Contact</h3>
+            </div>
+
+            <form class="col s12">
+                <div class="row">
+
+                    <div class="input-field col s6">     <!--各占一半-->
+                        <input id="lastname" type="text">
+                        <label for="lastname">Lastname</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="firstname" type="text">
+                        <label for="firstname">Firstname</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">    <!--input-field → Materialize 的輸入欄位樣式-->
+                        <input id="email" type="email">
+                        <label for="email">Email</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <textarea
+                            id="message"
+                            class="materialize-textarea"
+                            placeholder="Your message"></textarea>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/js/materialize.min.js"></script>
+</body>
+
+</html>
