@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Wantec 系統介紹。 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Wantec industrial collaboration: mold design, demolding analysis, and STEP model exports.">
+        <title>Wantec Mold Analysis — Wei-Wei Huang</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='8'%20fill='%23e9ed65'/%3E%3Ctext%20x='7'%20y='43'%20font-family='Arial'%20font-weight='bold'%20font-size='32'%3EWH%3C/text%3E%3C/svg%3E">
+    </head>
+    <body class="wantec-page">
+        <a class="skip-link" href="#wantec-main">Skip to content</a>
+        <header class="site-header">
+            <a class="wordmark" href="index.html">W<span class="wordmark-dot">.</span>H</a>
+            <nav aria-label="Project navigation">  <a href="index.html#projects">← Back to portfolio</a><a href="#system-preview">System preview</a><a href="index.html#contact">Contact ↗</a></nav>
+        </header>
+        <main id="wantec-main">
+            <section class="section wantec-hero">
+                <p class="eyebrow">INDUSTRY COLLABORATION / SEP 2025 — JUN 2026</p>
+                <h1>Wantec.<br><span class="highlight">Mold analysis.</span></h1>
+                <p>A 3D mold design and demolding analysis system built with an industrial partner.</p>
+                <div class="tags"><span>STEP models</span><span>Geometry analysis</span><span>Web interfaces</span><span>Report export</span></div>
+                <div class="project-availability">
+                    <strong>Project showcase + local application</strong>
+                    <p>The previews below show actual project interfaces. To run STEP/STP analysis on this computer, start Wantec using the launcher in the Digital resume folder, then open the local application below.</p>
+                    <a class="button button-dark" href="http://127.0.0.1:8020/" target="_blank" rel="noopener noreferrer">Open Wantec analysis system ↗</a>
+                    <p class="local-link-note">Local application on this computer. Run the Wantec launcher before opening this link. The backend supports analysis, 3D results, STEP downloads, and PDF reports. After restarting the computer, run the launcher again. The system has not been published online.</p>
+                </div>
+            </section>
+            <section class="section" id="system-preview" aria-labelledby="preview-title">
+                <div class="section-heading"><p class="eyebrow">01 / SYSTEM INTERFACES</p><h2 id="preview-title">Explore the <span class="highlight">workflow.</span></h2></div>
+
+                <fieldset class="wantec-tabs">
+                    <legend class="sr-only">Choose a Wantec system preview</legend>
+                    <input class="sr-only" type="radio" name="wantec-preview" id="tab-model" checked>
+                    <input class="sr-only" type="radio" name="wantec-preview" id="tab-undercut">
+                    <input class="sr-only" type="radio" name="wantec-preview" id="tab-report">
+                    <div class="filters"><label class="filter" for="tab-model">Mold generation</label><label class="filter" for="tab-undercut">Undercut analysis</label><label class="filter" for="tab-report">Report output</label></div>
+                    <figure class="wantec-panel model-panel"><img src="assets/mold-analysis.jpg" alt="System showing the product and generated upper and lower molds"><figcaption>Product geometry and upper/lower mold generation.</figcaption></figure>
+                    <figure class="wantec-panel undercut-panel"><img src="assets/wantec-undercuts.jpg" alt="Analysis interface marking undercuts and side openings on a 3D product"><figcaption>Undercut and side-opening positions marked directly on the model.</figcaption></figure>
+                    <figure class="wantec-panel report-panel"><img src="assets/wantec-report.jpg" alt="Generated mold analysis report with geometry and upper and lower molds"><figcaption>Exported analysis report and mold models.</figcaption></figure>
+                </fieldset>
+            </section>
+            <section class="section" aria-labelledby="contribution-title">
+                <div class="section-heading"><p class="eyebrow">02 / MY CONTRIBUTION</p><h2 id="contribution-title">System &amp; <span class="highlight">web development.</span></h2></div>
+                <div class="wantec-contribution"><p>I worked on system programming and web development, connecting analysis to an interface for reviewing geometry, demolding directions, and generated results.</p>
+                    <ol class="workflow-steps"><li><strong>01 / Input</strong><p>STEP or STP model</p></li><li><strong>02 / Analyze</strong><p>Geometry, pull direction, undercuts</p></li><li><strong>03 / Generate</strong><p>Upper and lower molds</p></li><li><strong>04 / Export</strong><p>Reports and model files</p></li></ol>
+                </div>
+                <a class="button button-dark" href="index.html#projects">Back to selected projects ↗</a>
+            </section>
+        </main>
+        <footer><a class="wordmark" href="index.html">W.H</a><p>© 2026 Wei-Wei Huang · Wantec project showcase</p><a class="text-link" href="#wantec-main">Back to top ↑</a></footer>
+    </body>
+</html>

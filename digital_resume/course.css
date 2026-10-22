@@ -1,0 +1,21 @@
+/* 課堂專案頁版面。 */
+
+body.course-page { margin: 0; background: #f5f3eb; }
+.course-page .course-page-header { display: flex; justify-content: space-between; align-items: center; padding: 20px max(24px,calc((100vw - 1240px)/2)); border-bottom: 2px solid #20211f; background: #2347d8; color: white; }
+.course-page .course-home { font: 900 30px/1 Arial,sans-serif; color: white; text-decoration: none; }
+.course-page .course-home span { color: #e9ed65; }
+.course-page .course-page-header nav { display: flex; align-items: center; gap: 24px; }
+.course-page .course-page-header nav a { color: white; font-size: 16px; }
+.course-page main { width: min(1280px,100%); max-width: none; margin: 0 auto; }
+.course-page .course-section { padding: 36px 30px; border: 0; }
+.course-page .section-heading { margin-bottom: 22px; }
+.course-page .section-heading h2 { font-size: clamp(30px,4vw,48px); }
+.course-page .course-page-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1240px; margin: 0 auto; padding: 22px 30px; border-top: 1px solid #20211f; font-size: 14px; }
+.course-page a:focus-visible { outline: 3px solid #e9ed65; outline-offset: 4px; }
+@media (max-width: 899px) {
+ .course-page .course-section { padding: 24px 16px; }
+ .course-page .course-page-header { padding: 18px 20px; }
+ .course-page .course-page-header nav { gap: 16px; }
+ .course-page .course-page-header nav a { font-size: 14px; }
+ .course-page .course-page-footer { padding: 20px 16px; }
+}

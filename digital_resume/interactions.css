@@ -1,0 +1,2759 @@
+/* 履歷互動與動畫。 */
+
+@keyframes appear{
+
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+@keyframes photo-sway{
+
+  0%, 100% {
+    transform: translateX(-50%) rotate(5deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+
+}
+@keyframes label-float{
+
+  0%, 100% {
+    transform: translateY(0) rotate(7deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+
+}
+@keyframes bold-curtain-left{
+
+  to {
+    transform: translateX(-101%);
+  }
+
+}
+@keyframes bold-curtain-right{
+
+  to {
+    transform: translateX(101%);
+  }
+
+}
+@keyframes bold-opening-exit{
+
+  0%, 96% {
+    visibility: visible;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+
+}
+@keyframes bold-label-exit{
+
+  to {
+    opacity: 0;
+    transform: rotate(-5deg) translateY(-20px);
+  }
+
+}
+@keyframes bold-letter-rise{
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+.about-keyword{
+  position: relative;
+  display: inline-block;
+  color: #1835a3;
+  font-weight: 600;
+  border-bottom: 2px solid #e9ed65;
+  cursor: help;
+  outline-offset: 5px;
+  transition-property: color, background;
+  transition-duration: .2s, .2s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
+  transition-behavior: normal, normal;
+}
+.about-keyword:hover,
+.about-keyword:focus{
+  background: #e9ed65;
+  color: #20211f;
+}
+@keyframes about-enter{
+
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+@media (hover: hover) and (pointer: fine){.about-keyword{
+    cursor: url("assets/cursor-go.png") 2 2, pointer;
+  }}
+@media (prefers-reduced-motion: reduce){.about-keyword{
+    transition-property: none;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-behavior: normal;
+  }}
+.keyword-burst{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 8;
+}
+.burst-particle{
+  position: absolute;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  animation-name: none;
+  animation-duration: auto;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.burst-emoji{
+  width: 24px;
+  height: 24px;
+  font: 22px/1 "Segoe UI Emoji", sans-serif;
+}
+.burst-dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2347d8;
+}
+.burst-particle:nth-child(1){
+  --dx: -52px;
+  --dy: -35px;
+  --rot: -25deg;
+  --delay: 0ms;
+}
+.burst-particle:nth-child(2){
+  --dx: -20px;
+  --dy: -60px;
+  --rot: 18deg;
+  --delay: 35ms;
+}
+.burst-particle:nth-child(3){
+  --dx: 26px;
+  --dy: -55px;
+  --rot: -15deg;
+  --delay: 15ms;
+}
+.burst-particle:nth-child(4){
+  --dx: 58px;
+  --dy: -28px;
+  --rot: 28deg;
+  --delay: 50ms;
+}
+.burst-particle:nth-child(5){
+  --dx: -42px;
+  --dy: 14px;
+  --rot: 0deg;
+  --delay: 25ms;
+  background: #2347d8;
+}
+.burst-particle:nth-child(6){
+  --dx: -34px;
+  --dy: -48px;
+  --rot: 0deg;
+  --delay: 55ms;
+  background: #e9ed65;
+  width: 10px;
+  height: 10px;
+}
+.burst-particle:nth-child(7){
+  --dx: 48px;
+  --dy: -43px;
+  --rot: 0deg;
+  --delay: 5ms;
+  background: #c9def1;
+  width: 9px;
+  height: 9px;
+}
+.burst-particle:nth-child(8){
+  --dx: 39px;
+  --dy: 19px;
+  --rot: 0deg;
+  --delay: 40ms;
+  background: #e9ed65;
+}
+@media (hover: hover) and (pointer: fine){.about-keyword:hover .burst-particle{
+    animation-name: keyword-scatter;
+    animation-duration: 800ms;
+    animation-timing-function: cubic-bezier(.16,.7,.3,1);
+    animation-delay: var(--delay);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+  }}
+.about-keyword:focus-visible .burst-particle{
+  animation-name: keyword-scatter;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(.16,.7,.3,1);
+  animation-delay: var(--delay);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+
+@keyframes keyword-scatter{
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(.7);
+  }
+
+}
+@media (prefers-reduced-motion: reduce){.keyword-burst{
+    display: none;
+  }}
+@media print{.keyword-burst{
+    display: none;
+  }}
+.burst-emoji{
+  width: 38px;
+  height: 38px;
+  font-size: 36px;
+}
+.burst-dot{
+  width: 11px;
+  height: 11px;
+}
+.burst-particle:nth-child(1){
+  --dx: -76px;
+  --dy: -48px;
+}
+.burst-particle:nth-child(2){
+  --dx: -28px;
+  --dy: -84px;
+}
+.burst-particle:nth-child(3){
+  --dx: 36px;
+  --dy: -78px;
+}
+.burst-particle:nth-child(4){
+  --dx: 84px;
+  --dy: -40px;
+}
+.burst-particle:nth-child(5){
+  --dx: -60px;
+  --dy: 22px;
+}
+.burst-particle:nth-child(6){
+  --dx: -49px;
+  --dy: -68px;
+  width: 15px;
+  height: 15px;
+}
+.burst-particle:nth-child(7){
+  --dx: 68px;
+  --dy: -61px;
+  width: 13px;
+  height: 13px;
+}
+.burst-particle:nth-child(8){
+  --dx: 55px;
+  --dy: 28px;
+}
+@keyframes language-wave{
+
+  0%,100% {
+    transform: rotate(0);
+  }
+
+  30% {
+    transform: rotate(-8deg) skewY(-3deg);
+  }
+
+  70% {
+    transform: rotate(6deg) skewY(3deg);
+  }
+
+}
+@keyframes folder-marquee{
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+@property --hover-progress{
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.number-hover{
+  display: inline-block;
+  position: relative;
+  color: #1835a3;
+  text-decoration: underline;
+  text-decoration-color: #e9ed65;
+  text-underline-offset: 4px;
+  cursor: help;
+  outline-offset: 4px;
+}
+
+.number-popup{
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  width: 240px;
+  max-width: 72vw;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  border: 2px solid #20211f;
+  box-shadow: 5px 5px 0 #2347d8;
+  background: #f5f3eb;
+  color: #20211f;
+  z-index: 30;
+  text-decoration: none;
+  font: 400 14px/1.5 Arial,sans-serif;
+}
+.number-hover:hover .number-popup,
+.number-hover:focus .number-popup{
+  display: block;
+  animation-name: number-popup-in;
+  animation-duration: .2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-title,
+.popup-note,
+.popup-scale{
+  display: block;
+}
+.popup-title{
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.popup-note{
+  margin-top: 12px;
+  font-size: 13px;
+}
+.popup-scale{
+  font-size: 12px;
+  margin-top: 8px;
+}
+.popup-big{
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.popup-ring{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  background: conic-gradient(#2347d8 calc(var(--hover-progress) * 1%), #d7d6cc 0);
+}
+.popup-ring::before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  background: #f5f3eb;
+  border-radius: 50%;
+}
+.popup-ring > span{
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+}
+.number-hover:hover .popup-ring,
+.number-hover:focus .popup-ring{
+  animation-name: ring-fill;
+  animation-duration: 1.1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-bar{
+  display: block;
+  height: 24px;
+  background: #d7d6cc;
+  border: 1px solid #20211f;
+  margin-top: 12px;
+}
+.popup-bar > span{
+  display: block;
+  height: 100%;
+  width: var(--goal-width);
+  background: #2347d8;
+  transform-origin: left;
+}
+.number-hover:hover .popup-bar > span,
+.number-hover:focus .popup-bar > span{
+  animation-name: bar-fill;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-thermo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+.thermo-track{
+  width: 30px;
+  height: 115px;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  background: #d7d6cc;
+  border: 2px solid #20211f;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.thermo-track > span{
+  width: 100%;
+  height: 95.34%;
+  background: #2347d8;
+  border-radius: 14px;
+  transform-origin: bottom;
+}
+.number-hover:hover .thermo-track > span,
+.number-hover:focus .thermo-track > span{
+  animation-name: column-fill;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-columns{
+  display: flex;
+  height: 125px;
+  row-gap: 24px;
+  column-gap: 24px;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom: 1px solid #20211f;
+}
+.popup-columns > span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+.popup-columns i{
+  display: block;
+  width: 42px;
+  background: #2347d8;
+  transform-origin: bottom;
+}
+.baseline-column{
+  height: 90px;
+}
+.light-column{
+  height: 1.079px;
+}
+.number-hover:hover .popup-columns i,
+.number-hover:focus .popup-columns i{
+  animation-name: column-fill;
+  animation-duration: 1.1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-gauge{
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+.number-hover:hover .gauge-fill,
+.number-hover:focus .gauge-fill{
+  animation-name: gauge-fill;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.popup-waffle{
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  row-gap: 3px;
+  column-gap: 3px;
+  margin-bottom: 10px;
+}
+.waffle-cell{
+  display: block;
+  aspect-ratio: 1;
+  background: #d7d6cc;
+}
+.waffle-cell.filled{
+  background: #2347d8;
+}
+.number-hover:hover .waffle-cell.filled,
+.number-hover:focus .waffle-cell.filled{
+  animation-name: waffle-fill;
+  animation-duration: .35s;
+  animation-timing-function: ease;
+  animation-delay: var(--cell-delay);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+@keyframes number-popup-in{
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+@keyframes ring-fill{
+
+  from {
+    --hover-progress: 0;
+  }
+
+  to {
+    --hover-progress: 97.58;
+  }
+
+}
+@keyframes bar-fill{
+
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+
+}
+@keyframes column-fill{
+
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+
+}
+@keyframes gauge-fill{
+
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+
+}
+@keyframes waffle-fill{
+
+  from {
+    opacity: .1;
+    transform: scale(.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+@media (prefers-reduced-motion: reduce){.popup-ring{
+    --hover-progress: 97.58;
+  }
+.number-popup,
+.number-popup *{
+    animation-name: none !important;
+    animation-duration: auto !important;
+    animation-timing-function: ease !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    animation-direction: normal !important;
+    animation-fill-mode: none !important;
+    animation-play-state: running !important;
+    animation-timeline: auto !important;
+    animation-range-start: normal !important;
+    animation-range-end: normal !important;
+  }}
+@media print{.number-popup{
+    display: none !important;
+  }
+.number-hover{
+    color: inherit;
+    text-decoration: none;
+  }}
+@keyframes orbit-turn{
+
+  from {
+    --orbit-turn: 0deg;
+  }
+
+  to {
+    --orbit-turn: 360deg;
+  }
+
+}
+.orbit-panel .number-popup{
+  bottom: calc(100% + 10px);
+}
+@keyframes orbit-panel-in{
+
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+@keyframes orbit-photo-sway{
+
+  0%,100% {
+    transform: translateX(-50%) translateY(8px) rotate(7deg);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-12px) rotate(-1deg);
+  }
+
+}
+@keyframes orbit-label-float{
+
+  0%,100% {
+    transform: translateY(6px) rotate(10deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+
+}
+@keyframes journey-forward{
+
+  0% {
+    left: -18px;
+    opacity: 0;
+  }
+
+  4% {
+    opacity: 1;
+  }
+
+  94% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% - 55px);
+    opacity: 0;
+  }
+
+}
+@keyframes walker-bounce{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+}
+@keyframes walker-stride{
+
+  from {
+    transform: rotate(-22deg);
+  }
+
+  to {
+    transform: rotate(22deg);
+  }
+
+}
+@keyframes walker-arms{
+
+  from {
+    transform: rotate(17deg);
+  }
+
+  to {
+    transform: rotate(-17deg);
+  }
+
+}
+@keyframes walker-bounce-two{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+}
+@keyframes walker-bounce-three{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+}
+@keyframes walker-stride-two{
+
+  from {
+    transform: rotate(-22deg);
+  }
+
+  to {
+    transform: rotate(22deg);
+  }
+
+}
+@keyframes walker-stride-three{
+
+  from {
+    transform: rotate(-22deg);
+  }
+
+  to {
+    transform: rotate(22deg);
+  }
+
+}
+@keyframes fly-japan{
+
+  0% {
+    transform: translate(294px,211px) rotate(-20deg);
+  }
+
+  50% {
+    transform: translate(327px,165px) rotate(-45deg);
+  }
+
+  100% {
+    transform: translate(309px,164px);
+  }
+
+}
+@keyframes fly-swiss{
+
+  0% {
+    transform: translate(294px,211px);
+  }
+
+  50% {
+    transform: translate(269px,123px) rotate(-45deg);
+  }
+
+  100% {
+    transform: translate(203px,151px) rotate(-90deg);
+  }
+
+}
+@keyframes fly-paris{
+
+  0% {
+    transform: translate(294px,211px);
+  }
+
+  50% {
+    transform: translate(246px,100px) rotate(-45deg);
+  }
+
+  100% {
+    transform: translate(195px,139px) rotate(-90deg);
+  }
+
+}
+@keyframes pal-hop{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+
+}
+@keyframes pal-hop-two{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+
+}
+@keyframes pal-hop-three{
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+
+}
+@keyframes pal-step{
+
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+
+}
+@keyframes pal-step-two{
+
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+
+}
+@keyframes pal-step-three{
+
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+
+}
+@keyframes level-dialog-in{
+
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+}
+@keyframes flag-rise{
+
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+@keyframes level-light{
+
+  from {
+    background: #f5f3eb;
+    color: #20211f;
+  }
+
+  to {
+    background: #2347d8;
+    color: #fff;
+  }
+
+}
+@keyframes travel-status-one{
+
+  0%,99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+@keyframes travel-status-two{
+
+  0%,99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+@keyframes travel-status-three{
+
+  0%,99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+@keyframes record-note-one{
+
+  0% {
+    opacity: 0;
+    transform: translate(0,0) scale(.5);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--nx),var(--ny)) rotate(15deg) scale(1.1);
+  }
+
+}
+@keyframes record-note-two{
+
+  0% {
+    opacity: 0;
+    transform: translate(0,0) scale(.5);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--nx),var(--ny)) rotate(-12deg) scale(1.1);
+  }
+
+}
+@keyframes record-note-three{
+
+  0% {
+    opacity: 0;
+    transform: translate(0,0) scale(.5);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--nx),var(--ny)) rotate(20deg) scale(1.1);
+  }
+
+}
+@keyframes music-staff-float{
+
+  0%, 100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(-3deg);
+  }
+
+}
+@keyframes projector-spin{
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+@keyframes film-screen-in{
+
+  from {
+    opacity: 0;
+    filter: brightness(1.5);
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+
+}
+@keyframes film-load{
+
+  from {
+    opacity: 0;
+    transform: translateY(-18px) rotate(-8deg) scale(.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+
+}
+.postal-desk{
+  max-width: 960px;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+.mail-scene{
+  position: relative;
+  perspective: 1500px;
+  padding-top: 100px;
+}
+.mail-envelope{
+  position: relative;
+  width: min(100%,700px);
+  height: 340px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  background: #e9ed65;
+  border: 2px solid #20211f;
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 #c9def1;
+}
+.mail-pocket{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  background: linear-gradient(145deg,transparent 49%,#193ac5 50%),linear-gradient(215deg,transparent 49%,#2347d8 50%);
+  border-bottom: 15px solid transparent;
+  border-image: repeating-linear-gradient(135deg,#e9ed65 0 20px,#2347d8 20px 40px,#c9def1 40px 60px) 15;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.mail-flap{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 56%;
+  background: #3154df;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+  transform-origin: top;
+  transition-property: transform;
+  transition-duration: .65s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-behavior: normal;
+  z-index: 5;
+}
+.mail-address{
+  position: absolute;
+  left: 25px;
+  bottom: 40px;
+  color: #f5f3eb;
+  font: 14px/1.8 monospace;
+  z-index: 4;
+}
+.mail-open-hit{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  display: grid;
+  place-content: center;
+  padding-top: 65px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+.mail-peek{
+  position: absolute;
+  left: 8%;
+  top: 12px;
+  width: 84%;
+  height: 200px;
+  z-index: 2;
+  cursor: pointer;
+  transition-property: transform;
+  transition-duration: .7s;
+  transition-timing-function: ease;
+  transition-delay: .35s;
+  transition-behavior: normal;
+  overflow: hidden;
+  border: 2px solid #20211f;
+  background: #f5f3eb;
+}
+.mail-peek img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mail-peek span{
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  background: #f5f3eb;
+  font-size: 14px;
+}
+.mail-card{
+  display: none;
+  position: relative;
+  width: min(100%,850px);
+  margin-top: -340px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  z-index: 8;
+  min-height: 580px;
+}
+.mail-card-front{
+  display: block;
+  min-height: 580px;
+  border: 2px solid #20211f;
+  background: #f5f3eb url('assets/contact-paris.png') center/cover;
+  box-shadow: 7px 7px 0 #e9ed65;
+  cursor: pointer;
+}
+.mail-card-back{
+  display: none;
+}
+.mail-card-back #contact-form{
+  width: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  background: #f5f3eb;
+  border: 2px solid #20211f;
+  box-shadow: 7px 7px 0 #c9def1;
+}
+.postcard-top{
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  column-gap: 20px;
+  border-bottom: 1px solid #20211f;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+.postcard-heading{
+  font: 700 27px Georgia,serif;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+.postcard-paris{
+  font: 13px/1.6 monospace;
+  color: #2347d8;
+}
+.mail-card-back input,
+.mail-card-back textarea{
+  color: #20211f;
+  background: #fffdf5;
+}
+.mail-card-back .form-note{
+  font-size: 13px;
+}
+.postal-controls{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 12px;
+  column-gap: 12px;
+  margin-top: 30px;
+}
+.postal-controls > *{
+  display: none;
+}
+.postal-controls label,
+.mail-send{
+  background: #e9ed65;
+  color: #20211f;
+  border: 2px solid #20211f;
+  font: 700 14px/1.5 sans-serif;
+  padding-top: 12px;
+  padding-right: 18px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  cursor: pointer;
+}
+.postal-note{
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 22px;
+}
+#postal-peek:checked ~ .mail-scene .mail-flap,
+#postal-front:checked ~ .mail-scene .mail-flap,
+#postal-write:checked ~ .mail-scene .mail-flap{
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+#postal-peek:checked ~ .mail-scene .mail-open-hit,
+#postal-front:checked ~ .mail-scene .mail-open-hit,
+#postal-write:checked ~ .mail-scene .mail-open-hit,
+#postal-sealed:checked ~ .mail-scene .mail-open-hit,
+#postal-stamped:checked ~ .mail-scene .mail-open-hit{
+  display: none;
+}
+#postal-peek:checked ~ .mail-scene .mail-peek{
+  transform: translateY(-110px);
+  z-index: 4;
+}
+#postal-front:checked ~ .mail-scene .mail-card,
+#postal-write:checked ~ .mail-scene .mail-card{
+  display: block;
+  animation-name: card-pull;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-write:checked ~ .mail-scene .mail-card-front{
+  display: none;
+}
+#postal-write:checked ~ .mail-scene .mail-card-back{
+  display: block;
+  animation-name: card-turn;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-front:checked ~ .mail-scene .mail-peek,
+#postal-write:checked ~ .mail-scene .mail-peek{
+  visibility: hidden;
+}
+#postal-front:checked ~ .postal-controls .mail-close,
+#postal-write:checked ~ .postal-controls .mail-close,
+#postal-peek:checked ~ .postal-controls .mail-close{
+  display: block;
+}
+#postal-write:checked ~ .postal-controls .mail-turn-front{
+  display: block;
+}
+#postal-sealed:checked ~ .postal-controls .mail-reopen,
+#postal-stamped:checked ~ .postal-controls .mail-reopen,
+#postal-sealed:checked ~ .postal-controls .mail-stamp-action{
+  display: block;
+}
+#postal-sealed:checked ~ .mail-scene .mail-pocket{
+  animation-name: envelope-return;
+  animation-duration: .6s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.mail-cancellation{
+  position: absolute;
+  right: 30px;
+  bottom: 50px;
+  z-index: 7;
+  display: none;
+  color: #20211f;
+  background: #f5f3eb;
+  padding-top: 6px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  transform: rotate(-9deg);
+}
+.mail-cancellation span{
+  display: inline-grid;
+  place-content: center;
+  border: 3px double #20211f;
+  border-radius: 50%;
+  width: 82px;
+  height: 82px;
+  text-align: center;
+  font: 13px/1.5 monospace;
+}
+.mail-cancellation i{
+  display: inline-block;
+  font: 28px/.65 Georgia,serif;
+  vertical-align: middle;
+}
+.mail-stamper{
+  display: none;
+  position: absolute;
+  right: 80px;
+  bottom: 45px;
+  z-index: 9;
+}
+.mail-stamper span{
+  display: block;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 35px;
+  height: 80px;
+  background: #20211f;
+  border-radius: 18px 18px 4px 4px;
+}
+.mail-stamper i{
+  display: block;
+  width: 110px;
+  height: 25px;
+  background: #c9def1;
+  border: 3px solid #20211f;
+  border-radius: 8px;
+}
+#postal-stamped:checked ~ .mail-scene .mail-stamper{
+  display: block;
+  animation-name: stamp-press;
+  animation-duration: 1.3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-stamped:checked ~ .mail-scene .mail-cancellation{
+  display: block;
+  animation-name: ink-print;
+  animation-duration: .2s;
+  animation-timing-function: ease;
+  animation-delay: .65s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.postal-desk:has(#contact-form:valid) #postal-stamped:checked ~ .postal-controls .mail-send{
+  display: block;
+}
+.postal-desk:not(:has(#contact-form:valid)) #postal-stamped:checked ~ .postal-controls .mail-incomplete{
+  display: block;
+  max-width: 450px;
+  font-size: 13px;
+}
+@keyframes card-pull{
+
+  from {
+    opacity: 0;
+    transform: translateY(120px) scale(.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+@keyframes card-turn{
+
+  from {
+    opacity: 0;
+    transform: rotateY(-80deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+@keyframes envelope-return{
+
+  from {
+    transform: translateY(12px);
+  }
+
+  to {
+    transform: none;
+  }
+
+}
+@keyframes stamp-press{
+
+  0% {
+    opacity: 0;
+    transform: translateY(-140px) rotate(12deg);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50%,60% {
+    opacity: 1;
+    transform: translateY(0) rotate(-9deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-140px) rotate(-9deg);
+  }
+
+}
+@keyframes ink-print{
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+@media (max-width: 600px){.mail-envelope{
+    height: 280px;
+  }
+.mail-address{
+    font-size: 13px;
+    left: 15px;
+    bottom: 30px;
+  }
+.mail-open-hit{
+    font-size: 16px;
+  }
+.mail-card{
+    margin-top: -280px;
+  }
+.mail-card-front{
+    min-height: 520px;
+    background-position: left bottom;
+  }
+.mail-card-back #contact-form{
+    padding-top: 18px;
+    padding-right: 18px;
+    padding-bottom: 18px;
+    padding-left: 18px;
+  }
+.postcard-top{
+    flex-direction: column;
+  }
+.mail-cancellation{
+    right: 12px;
+    bottom: 110px;
+    transform: scale(.75) rotate(-9deg);
+    transform-origin: right;
+  }}
+@media (prefers-reduced-motion: reduce){.mail-flap,
+.mail-peek{
+    transition-property: none;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-behavior: normal;
+  }
+.mail-card,
+.mail-card-back,
+.mail-pocket,
+.mail-stamper,
+.mail-cancellation{
+    animation-name: none !important;
+    animation-duration: auto !important;
+    animation-timing-function: ease !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    animation-direction: normal !important;
+    animation-fill-mode: none !important;
+    animation-play-state: running !important;
+    animation-timeline: auto !important;
+    animation-range-start: normal !important;
+    animation-range-end: normal !important;
+  }
+.mail-stamper{
+    visibility: hidden;
+  }}
+.mail-card-front{
+  min-height: 0;
+  background: #f5f3eb;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  border: 0;
+  box-shadow: none;
+}
+.mail-card-front > img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.mail-peek{
+  display: none;
+}
+.mail-cancellation{
+  background: transparent;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  width: 245px;
+  height: 145px;
+  right: 18px;
+  bottom: 28px;
+}
+.mail-postmark-art{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mail-stamper{
+  right: 87px;
+  bottom: 60px;
+}
+@media (max-width: 600px){.mail-card-front{
+    min-height: 0;
+  }
+.mail-cancellation{
+    width: 175px;
+    height: 104px;
+    right: 10px;
+    bottom: 100px;
+    transform: rotate(-9deg);
+  }
+.mail-stamper{
+    right: 40px;
+    bottom: 112px;
+  }}
+.mail-envelope{
+  height: 400px;
+}
+.mail-card{
+  margin-top: -400px;
+}
+.postal-desk{
+  overflow-anchor: none;
+}
+.postal-desk > input[type="radio"]{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+.postal-controls{
+  min-height: 95px;
+  align-content: start;
+}
+#postal-stamped:checked ~ .postal-controls .mail-stamp-action{
+  display: block;
+  visibility: hidden;
+}
+.mail-stamper{
+  pointer-events: none;
+}
+@media (max-width: 600px){.mail-envelope{
+    height: 330px;
+  }
+.mail-card{
+    margin-top: -330px;
+  }}
+.postal-controls{
+  position: relative;
+  height: 170px;
+  min-height: 170px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.mail-incomplete{
+  flex-basis: 100%;
+  text-align: center;
+}
+.mail-scene{
+  overflow-anchor: none;
+}
+.postal-desk{
+  position: relative;
+  padding-top: 0;
+  padding-right: 25px;
+  padding-bottom: 0;
+  padding-left: 25px;
+  background-image: radial-gradient(#c9def160 1px,transparent 1px);
+  background-size: 18px 18px;
+  border-radius: 28px;
+}
+.mail-scene{
+  padding-top: 75px;
+}
+.mail-envelope{
+  border: 3px solid #20211f;
+  box-shadow: 9px 10px 0 #c9def1;
+}
+.mail-envelope::before{
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: 20px;
+  bottom: 12px;
+  left: -20px;
+  background: #f5f3eb;
+  border: 2px solid #20211f;
+  transform: rotate(-5deg);
+  z-index: -1;
+  box-shadow: 5px 5px 0 #e9ed65;
+}
+.mail-pocket{
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-image: repeating-linear-gradient(135deg,#e9ed65 0 20px,#2347d8 20px 40px,#c9def1 40px 60px) 12;
+}
+.mail-air-label{
+  position: absolute;
+  left: 25px;
+  top: 34px;
+  z-index: 6;
+  pointer-events: none;
+  background: #e9ed65;
+  border: 2px solid #20211f;
+  color: #20211f;
+  font: 700 14px/1.6 monospace;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  transform: rotate(-7deg);
+  box-shadow: 3px 3px 0 #20211f;
+}
+.mail-route-label{
+  position: absolute;
+  right: 24px;
+  top: 28px;
+  z-index: 6;
+  pointer-events: none;
+  color: #2347d8;
+  background: #f5f3eb;
+  border: 2px dashed #20211f;
+  font: 13px/1.6 monospace;
+  padding-top: 14px;
+  padding-right: 14px;
+  padding-bottom: 14px;
+  padding-left: 14px;
+  transform: rotate(8deg);
+}
+.mail-ticket{
+  position: absolute;
+  bottom: -38px;
+  left: 42px;
+  z-index: -1;
+  background: #e9ed65;
+  color: #20211f;
+  padding-top: 12px;
+  padding-right: 22px;
+  padding-bottom: 12px;
+  padding-left: 22px;
+  border: 2px solid #20211f;
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+.mail-ticket strong,
+.mail-ticket span{
+  display: block;
+  font: 700 16px/1.6 monospace;
+}
+.mail-ticket span{
+  font-size: 13px;
+}
+.mail-ticket i{
+  display: block;
+  height: 15px;
+  width: 85px;
+  background: repeating-linear-gradient(90deg,#20211f 0 2px,transparent 2px 5px);
+}
+.postal-controls{
+  margin-top: 55px;
+}
+@media (max-width: 600px){.postal-desk{
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+.mail-air-label{
+    font-size: 11px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    left: 14px;
+  }
+.mail-route-label{
+    font-size: 11px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    right: 14px;
+  }
+.mail-ticket{
+    left: 14px;
+    bottom: -40px;
+    padding-top: 8px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+  }}
+.postal-desk{
+  max-width: 840px;
+}
+.mail-scene{
+  padding-top: 45px;
+}
+.mail-envelope{
+  width: min(100%,620px);
+  height: 310px;
+}
+.mail-card{
+  margin-top: -310px;
+  min-height: 0;
+}
+.mail-ticket{
+  bottom: -62px;
+  z-index: 1;
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  transform: rotate(3deg);
+}
+.mail-ticket strong{
+  font-size: 15px;
+}
+.mail-ticket span{
+  font-size: 12px;
+}
+.mail-ticket i{
+  height: 12px;
+}
+.mail-air-label{
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  font-size: 13px;
+}
+.mail-route-label{
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.mail-address{
+  font-size: 13px;
+}
+.postal-controls{
+  margin-top: 78px;
+  height: 100px;
+  min-height: 100px;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+.postal-note{
+  margin-top: 8px;
+}
+.mail-ready{
+  font: 700 13px/1.5 monospace;
+  color: #2347d8;
+  flex-basis: 100%;
+  text-align: center;
+}
+#postal-stamped:checked ~ .postal-controls .mail-stamp-action{
+  display: none;
+}
+.postal-desk:has(#contact-form:valid) #postal-stamped:checked ~ .postal-controls .mail-ready{
+  display: block;
+}
+@media (max-width: 600px){.mail-envelope{
+    height: 280px;
+  }
+.mail-card{
+    margin-top: -280px;
+  }
+.mail-air-label{
+    font-size: 11px;
+  }
+.mail-route-label{
+    font-size: 11px;
+  }
+.postal-controls{
+    height: 135px;
+    min-height: 135px;
+  }}
+.postal-desk{
+  max-width: 980px;
+  padding-top: 0;
+  padding-right: 18px;
+  padding-bottom: 0;
+  padding-left: 18px;
+}
+.mail-scene{
+  padding-top: 28px;
+}
+.mail-envelope{
+  width: min(100%,780px);
+  height: 340px;
+}
+.mail-card{
+  margin-top: -340px;
+}
+.mail-envelope::before{
+  top: -20px;
+  right: 18px;
+  bottom: 6px;
+  left: -32px;
+  transform: rotate(-4deg);
+}
+.mail-ticket{
+  left: 45px;
+  bottom: -65px;
+  padding-top: 10px;
+  padding-right: 22px;
+  padding-bottom: 10px;
+  padding-left: 22px;
+}
+.mail-ticket strong{
+  font-size: 20px;
+}
+.mail-ticket span{
+  font-size: 14px;
+}
+.mail-ticket i{
+  width: 125px;
+  height: 14px;
+}
+.postal-controls{
+  margin-top: 76px;
+  height: 72px;
+  min-height: 72px;
+}
+.postal-note{
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+@media (max-width: 600px){.postal-desk{
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 0;
+    padding-left: 8px;
+  }
+.mail-envelope{
+    height: 290px;
+  }
+.mail-card{
+    margin-top: -290px;
+  }
+.mail-envelope::before{
+    top: -12px;
+    right: 12px;
+    bottom: 6px;
+    left: -14px;
+  }
+.mail-ticket{
+    left: 20px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+  }
+.mail-ticket strong{
+    font-size: 18px;
+  }
+.postal-controls{
+    height: 120px;
+    min-height: 120px;
+  }}
+.mail-ticket{
+  top: calc(100% + 12px);
+  bottom: auto;
+  z-index: 7;
+  transform: rotate(3deg);
+}
+.postal-controls{
+  margin-top: 120px;
+}
+@media (max-width: 600px){.mail-ticket{
+    top: calc(100% + 10px);
+    bottom: auto;
+  }
+.postal-controls{
+    margin-top: 110px;
+  }}
+.mail-courier{
+  display: none;
+  position: absolute;
+  right: 7%;
+  top: 100px;
+  width: 210px;
+  z-index: 12;
+  pointer-events: none;
+}
+.mail-courier svg{
+  width: 100%;
+  overflow: visible;
+}
+.courier-arm{
+  transform-origin: 74px 120px;
+}
+.courier-mini-letter{
+  position: absolute;
+  width: 40px;
+  height: 25px;
+  background: #f5f3eb;
+  border: 2px solid #20211f;
+  left: 58%;
+  top: 56%;
+  opacity: 0;
+}
+#postal-stamped:checked ~ .postal-controls .mail-collect{
+  display: block;
+}
+#postal-collected:checked ~ .mail-scene .mail-open-hit{
+  display: none;
+}
+#postal-collected:checked ~ .mail-scene .mail-envelope{
+  animation-name: mail-into-bag;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  transform-origin: 78% 62%;
+}
+#postal-collected:checked ~ .mail-scene .mail-courier{
+  display: block;
+  animation-name: courier-pickup;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .courier-arm{
+  animation-name: courier-reach;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .courier-mini-letter{
+  animation-name: small-mail-drop;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .postal-controls .mail-another,
+#postal-collected:checked ~ .postal-controls .mail-collected-note{
+  display: block;
+  animation-name: pickup-finished;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 5.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+.mail-another{
+  padding-top: 12px;
+  padding-right: 18px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  background: #e9ed65;
+  color: #20211f;
+  border: 2px solid #20211f;
+  font: 700 14px/1.5 sans-serif;
+  cursor: pointer;
+}
+.mail-collected-note{
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+@keyframes courier-pickup{
+
+  0% {
+    opacity: 0;
+    transform: translateX(180px);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  30%,70% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+
+}
+@keyframes courier-reach{
+
+  0%,25% {
+    transform: rotate(-35deg);
+  }
+
+  40%,55% {
+    transform: rotate(0);
+  }
+
+  65%,100% {
+    transform: rotate(-35deg);
+  }
+
+}
+@keyframes mail-into-bag{
+
+  0%,38% {
+    opacity: 1;
+    transform: none;
+  }
+
+  58% {
+    opacity: 1;
+    transform: translate(65px,10px) scale(.08);
+  }
+
+  65%,100% {
+    opacity: 0;
+    transform: translate(65px,10px) scale(.02);
+  }
+
+}
+@keyframes small-mail-drop{
+
+  0%,53% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-8deg);
+  }
+
+  58% {
+    opacity: 1;
+  }
+
+  68%,100% {
+    opacity: 0;
+    transform: translateY(25px) rotate(0);
+  }
+
+}
+@keyframes pickup-finished{
+
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+@media (max-width: 600px){.mail-courier{
+    width: 165px;
+    right: 3%;
+    top: 110px;
+  }}
+@media (prefers-reduced-motion: reduce){#postal-collected:checked ~ .mail-scene .mail-envelope{
+    animation-name: none;
+    animation-duration: auto;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+    visibility: hidden;
+  }
+#postal-collected:checked ~ .mail-scene .mail-courier{
+    display: none;
+  }
+#postal-collected:checked ~ .postal-controls > *{
+    animation-name: none;
+    animation-duration: auto;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+  }}
+.mail-courier{
+  width: 140px;
+  top: 130px;
+  right: 8%;
+}
+.courier-perspective-hand{
+  position: absolute;
+  width: 430px;
+  left: -345px;
+  top: -115px;
+  transform-origin: 90% 90%;
+  opacity: 0;
+}
+.courier-perspective-hand svg{
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.courier-mini-letter{
+  display: none;
+}
+#postal-collected:checked ~ .mail-scene .mail-courier{
+  animation-name: courier-depth-walk;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .courier-perspective-hand{
+  animation-name: perspective-hand-reach;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .finger-index{
+  animation-name: grasp-index;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .finger-middle{
+  animation-name: grasp-middle;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .finger-ring{
+  animation-name: grasp-ring;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .finger-little{
+  animation-name: grasp-little;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .finger-thumb{
+  animation-name: grasp-thumb;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .mail-envelope{
+  animation-name: letter-perspective-pickup;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  transform-origin: 78% 65%;
+}
+#postal-collected:checked ~ .postal-controls .mail-another,
+#postal-collected:checked ~ .postal-controls .mail-collected-note{
+  animation-delay: 10s;
+}
+@keyframes courier-depth-walk{
+
+  0% {
+    opacity: 0;
+    transform: translateX(140px);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  20%,82% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(180px) scale(.8);
+  }
+
+}
+@keyframes perspective-hand-reach{
+
+  0%,16% {
+    opacity: 0;
+    transform: translate(250px,140px) scale(.18);
+  }
+
+  30%,46% {
+    opacity: 1;
+    transform: translate(0,0) scale(1);
+  }
+
+  74% {
+    opacity: 1;
+    transform: translate(280px,170px) scale(.2);
+  }
+
+  80%,100% {
+    opacity: 0;
+    transform: translate(280px,185px) scale(.12);
+  }
+
+}
+@keyframes letter-perspective-pickup{
+
+  0%,43% {
+    opacity: 1;
+    transform: none;
+  }
+
+  49% {
+    opacity: 1;
+    transform: translate(-8px,-15px) rotate(-3deg) scale(.97);
+  }
+
+  61% {
+    opacity: 1;
+    transform: translate(48px,10px) rotate(4deg) scale(.65);
+  }
+
+  74% {
+    opacity: 1;
+    transform: translate(96px,28px) rotate(7deg) scale(.13);
+  }
+
+  80%,100% {
+    opacity: 0;
+    transform: translate(100px,40px) rotate(7deg) scale(.04);
+  }
+
+}
+@keyframes grasp-index{
+
+  0%,34% {
+    transform: rotate(-8deg) scaleY(1);
+  }
+
+  45%,100% {
+    transform: rotate(20deg) scaleY(.53);
+  }
+
+}
+@keyframes grasp-middle{
+
+  0%,36% {
+    transform: rotate(0) scaleY(1);
+  }
+
+  46%,100% {
+    transform: rotate(10deg) scaleY(.52);
+  }
+
+}
+@keyframes grasp-ring{
+
+  0%,37% {
+    transform: rotate(7deg) scaleY(1);
+  }
+
+  47%,100% {
+    transform: rotate(-5deg) scaleY(.55);
+  }
+
+}
+@keyframes grasp-little{
+
+  0%,38% {
+    transform: rotate(13deg) scaleY(1);
+  }
+
+  48%,100% {
+    transform: rotate(-18deg) scaleY(.58);
+  }
+
+}
+@keyframes grasp-thumb{
+
+  0%,35% {
+    transform: rotate(-20deg);
+  }
+
+  45%,100% {
+    transform: rotate(28deg);
+  }
+
+}
+@media (max-width: 600px){.mail-courier{
+    width: 105px;
+    right: 5%;
+    top: 120px;
+  }
+.courier-perspective-hand{
+    width: 280px;
+    left: -205px;
+    top: -70px;
+  }}
+@media (prefers-reduced-motion: reduce){.courier-perspective-hand{
+    display: none;
+  }}
+.mail-courier{
+  width: 210px;
+  top: 100px;
+  right: 7%;
+}
+.courier-mini-letter{
+  display: block;
+}
+#postal-collected:checked ~ .mail-scene .mail-courier{
+  animation-name: courier-pickup;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .mail-scene .mail-envelope{
+  animation-name: mail-into-bag;
+  animation-duration: 5.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
+#postal-collected:checked ~ .postal-controls .mail-another,
+#postal-collected:checked ~ .postal-controls .mail-collected-note{
+  animation-delay: 5.5s;
+}
+@media (max-width: 600px){.mail-courier{
+    width: 165px;
+    right: 3%;
+    top: 110px;
+  }}
+@media (prefers-reduced-motion: reduce){#postal-collected:checked ~ .mail-scene .mail-courier{
+    display: none;
+  }
+#postal-collected:checked ~ .mail-scene .mail-envelope{
+    animation-name: none;
+    animation-duration: auto;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+    visibility: hidden;
+  }}
+@media (max-width: 600px){.postal-desk .postal-controls{
+    height: auto;
+    min-height: 200px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: normal;
+    row-gap: 14px;
+    column-gap: 14px;
+    padding-bottom: 12px;
+  }
+.postal-desk .postal-controls > *{
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+.postal-desk .postal-controls > span{
+    flex-basis: auto;
+    width: 100%;
+    text-align: center;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+.postal-desk .postal-note{
+    position: static;
+    margin-top: 16px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }}
+
+.profile .about-keyword { font-weight: 500; color: #2347d8; text-decoration-thickness: 1px; }
+.result .number-hover { color: #2347d8; font-weight: 700; }
+.number-popup { position: fixed; left: calc(50% - 130px); top: 26vh; bottom: auto; width: 260px; max-width: calc(100vw - 32px); z-index: 300; font-size: 14px; line-height: 1.5; }
+.number-popup .popup-title { font-size: 15px; }
+.number-popup .popup-note { font-size: 13px; }
+.languages li { cursor: default; }
+.languages img { transform-origin: left center; }
+.languages li:hover img, .languages li:focus-visible img { animation-name: language-wave; animation-duration: .7s; animation-timing-function: ease-in-out; animation-iteration-count: 2; }
+.postcard-dialog { margin: 0; padding: 0; border: 0; font-size: 11px; }
+.postcard-dialog > summary { display: block; list-style: none; cursor: pointer; color: #2347d8; font-weight: 700; }
+.postcard-dialog > summary::-webkit-details-marker { display: none; }
+.postcard-open-label { display: flex; align-items: center; gap: 7px; }
+.mini-envelope { position: relative; display: inline-block; width: 25px; height: 17px; border: 1px solid #2347d8; border-radius: 2px; background: #e4e9ff; transition-property: transform; transition-duration: .2s; }
+.mini-envelope::before { content: ''; position: absolute; top: 1px; left: 2px; right: 2px; height: 9px; background: #2347d8; clip-path: polygon(0 0,100% 0,50% 100%); }
+.postcard-dialog > summary:hover .mini-envelope { transform: translateY(-2px); }
+.postcard-dialog > summary:focus-visible { outline: 2px solid #2347d8; outline-offset: 4px; }
+.postcard-close-label { display: none; }
+.postcard-overlay { display: none; }
+.postcard-dialog[open] > summary { position: fixed; z-index: 251; top: 20px; right: max(20px,calc((100vw - 760px)/2 + 14px)); padding: 7px 12px; border: 1px solid #202726; background: #e9ed65; color: #202726; font-size: 13px; }
+.postcard-dialog[open] .postcard-open-label { display: none; }
+.postcard-dialog[open] .postcard-close-label { display: inline; }
+.postcard-dialog[open] .postcard-overlay { display: block; position: fixed; z-index: 250; top: 12px; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(760px,calc(100vw - 24px)); padding: 44px 26px 24px; overflow: auto; background: #faf9f4; border: 1px solid #202726; border-radius: 6px; box-shadow: 0 0 0 100vmax #142b5070; }
+.postcard-overlay > h2 { font-size: 21px; margin: 0 0 25px; }
+body:has(.postcard-dialog[open]) { overflow: hidden; }
+.postcard-overlay .postal-desk { width: 100%; max-width: none; margin: 0; padding: 0; background: transparent; }
+.postcard-overlay .postal-desk .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.postcard-overlay .mail-envelope { width: 100%; height: 340px; }
+.postcard-overlay .mail-card { width: 100%; margin-top: -340px; }
+.postcard-overlay .mail-card-front { min-height: 0; }
+.postcard-overlay .postcard-form { font-size: 16px; }
+.postcard-overlay .form-name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.postcard-overlay .postcard-form input, .postcard-overlay .postcard-form textarea { display: block; width: 100%; padding: 10px; font: inherit; border: 1px solid #202726; background: white; }
+.postcard-overlay .postcard-form label { display: block; font-size: 13px; margin: 9px 0 4px; }
+.postcard-overlay .form-note { font-size: 13px; line-height: 1.5; margin-top: 12px; }
+.postcard-overlay .postal-controls { height: auto; min-height: 100px; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 100px; }
+.postcard-overlay .postal-controls > label, .postcard-overlay .postal-controls > button { font-size: 14px; }
+.postcard-overlay .postal-note { position: static; font-size: 13px; line-height: 1.6; margin-top: 15px; }
+.postcard-overlay .mail-another { cursor: pointer; }
+@media (max-width: 600px) {
+ .number-popup { left: 16px; top: 24vh; width: calc(100vw - 32px); }
+ .postcard-dialog[open] .postcard-overlay { padding: 48px 14px 20px; }
+ .postcard-overlay .mail-envelope { height: 290px; }
+ .postcard-overlay .mail-card { margin-top: -290px; }
+ .postcard-overlay .form-name-row { grid-template-columns: 1fr; gap: 0; }
+ .postcard-overlay .postal-controls { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .languages img, .mini-envelope { animation: none !important; transition: none !important; }
+}
+@media print {
+ .keyword-burst, .number-popup, .postcard-dialog { display: none !important; }
+ .number-hover, .about-keyword { color: inherit; text-decoration: none; }
+ .languages img { animation: none; }
+}
+
+.cv-journey { border: 0; padding: 0; margin: 0; min-width: 0; }
+.cv-journey > .sr-only, .cv-journey-choice { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.cv-journey-entries { position: relative; display: grid; grid-template-rows: repeat(3,minmax(68px,1fr)); padding-left: 37px; }
+.cv-journey .experience-entry { position: relative; margin: 0; padding: 4px 0 8px 9px; border-left: 2px solid transparent; }
+.cv-journey .experience-entry h3 label { cursor: pointer; }
+.cv-journey .experience-entry h3 label:hover { color: #2347d8; text-decoration: underline; text-underline-offset: 3px; }
+.cv-walking-track { position: absolute; top: 0; bottom: 0; left: 0; width: 29px; }
+.cv-walking-track::before { content: ''; position: absolute; top: 15px; bottom: 15px; left: 14px; border-left: 1px dashed #b7c3d7; }
+.cv-walker { position: absolute; top: 4px; left: 0; width: 29px; height: 37px; transition-property: top; transition-duration: 1.4s; transition-timing-function: ease-in-out; }
+.cv-paper-pal { display: block; width: 29px; height: 37px; transform-origin: center; }
+.cv-paper-pal .pal-foot { transform-box: fill-box; transform-origin: center; }
+#cv-journey-1:checked ~ .cv-journey-entries .cv-walker { top: 4px; }
+#cv-journey-2:checked ~ .cv-journey-entries .cv-walker { top: calc(33.333% + 4px); }
+#cv-journey-3:checked ~ .cv-journey-entries .cv-walker { top: calc(66.666% + 4px); }
+#cv-journey-1:checked ~ .cv-journey-entries .cv-stop-1,
+#cv-journey-2:checked ~ .cv-journey-entries .cv-stop-2,
+#cv-journey-3:checked ~ .cv-journey-entries .cv-stop-3 { border-left-color: #2347d8; }
+#cv-journey-2:checked ~ .cv-journey-entries .cv-paper-pal { animation-name: cv-walk-two; animation-duration: .2s; animation-iteration-count: 7; }
+#cv-journey-3:checked ~ .cv-journey-entries .cv-paper-pal { animation-name: cv-walk-three; animation-duration: .2s; animation-iteration-count: 7; }
+#cv-journey-2:checked ~ .cv-journey-entries .pal-foot { animation-name: cv-step-two; animation-duration: .2s; animation-iteration-count: 7; }
+#cv-journey-3:checked ~ .cv-journey-entries .pal-foot { animation-name: cv-step-three; animation-duration: .2s; animation-iteration-count: 7; }
+.cv-journey-choice:focus-visible ~ .cv-journey-entries label { outline: 1px dotted #2347d8; outline-offset: 3px; }
+@keyframes cv-walk-two { 0%,100% { transform: translateX(0); } 50% { transform: translateX(2px) rotate(3deg); } }
+@keyframes cv-walk-three { 0%,100% { transform: translateX(0); } 50% { transform: translateX(2px) rotate(3deg); } }
+@keyframes cv-step-two { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes cv-step-three { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+
+.awards { gap: 11px; }
+.awards li { grid-template-columns: 32px minmax(0,1fr); gap: 11px; min-height: 37px; }
+.award-year { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 29px; height: 29px; padding: 0; border-radius: 50%; background: #e9ed65; color: #202726; border: 1px solid #202726; font-size: 8px; box-shadow: inset 0 0 0 2px #e9ed65,inset 0 0 0 3px #202726; }
+
+.award-year::after { content: ''; position: absolute; z-index: -1; left: 8px; top: 24px; width: 11px; height: 12px; border: 1px solid #2347d8; background: #2347d8; clip-path: polygon(0 0,100% 0,100% 100%,50% 75%,0 100%); }
+@media (prefers-reduced-motion: reduce) { .cv-walker { transition: none; } .cv-paper-pal, .cv-paper-pal .pal-foot { animation: none !important; } }
+@media print { .cv-walker { transition: none; } .cv-paper-pal, .cv-paper-pal .pal-foot { animation: none; } .cv-journey-choice { display: none; } }
+
+.award-year { transition-property: transform; transition-duration: .2s; transition-timing-function: ease; }
+@media (prefers-reduced-motion: reduce) { .award-year { transition: none; } }
+@media print { .award-year { transform: none !important; } }

@@ -1,0 +1,7 @@
+/* 研究專案頁版面。 */
+
+body { margin: 0; background: #f5f3eb; }
+.research-header { display: flex; justify-content: space-between; gap: 20px; padding: 20px 6%; background: #2347d8; color: white; }
+.research-header a { color: white; }
+main { max-width: 1400px; margin: 0 auto; }
+.projects-section { margin: 0; }
